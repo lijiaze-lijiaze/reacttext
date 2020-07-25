@@ -1,4 +1,4 @@
-import React,{useContext, Component,createContext }  from 'react';
+import React,{useContext, Component,createContext, useState }  from 'react';
 import ShowAn from './App'
 //创建context
 export const NumberContext = createContext();
@@ -6,8 +6,14 @@ export const NumberContext = createContext();
 //{Provider ， Consumer}
 function App(){
     //使用Provider为所有子孙提供value值
+    const [num,setnum] = useState(520)
+    let change = () =>{
+        console.log('change')
+        setnum(555)
+    }
     return (
-      <NumberContext.Provider value={520}>
+      <NumberContext.Provider value={num}>
+          <button onClick={change}>change</button>
           <div>
           <ShowAn />
           </div>
