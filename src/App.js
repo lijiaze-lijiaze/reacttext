@@ -5,8 +5,9 @@ function ShowAn(){
   //使用Consumer从上下文获取value
 //调用useContext，传入从React.createContext获取的上下文对象。
   const value = useContext(NumberContext);
+  const [newvalue,setnewvalue] = useState(value)
   useEffect(() => {
-    console.log(value)
+    setnewvalue(value+1)
   },[value]);
   //console.log(value)
   return(
@@ -14,7 +15,7 @@ function ShowAn(){
       // {value=><div>the answer is {value}</div>}
     // </numberContext.Consumer>
     <div>
-      the answer is {value}
+      the answer is {newvalue}
     </div>
 
   )
