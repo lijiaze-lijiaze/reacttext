@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import React,{useContext, Component }  from 'react';
+import {NumberContext} from './context'
+//const value = useContext(numberContext);
+function ShowAn(){
+  //使用Consumer从上下文获取value
+//调用useContext，传入从React.createContext获取的上下文对象。
+  const value = useContext(NumberContext);
+  console.log(value)
+  return(
+    // <numberContext.Consumer>
+      // {value=><div>the answer is {value}</div>}
+    // </numberContext.Consumer>
+    <div>
+      the answer is {value}
     </div>
-  );
-}
 
-export default App;
+  )
+}
+export default ShowAn
